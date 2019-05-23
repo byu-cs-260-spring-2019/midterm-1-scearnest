@@ -22,6 +22,9 @@
 
     <div class="body" id = "body">
 
+      <div v-if="loading">
+            <p>Loading...</p>
+          </div>
       <div class="results_section" id = "results_section">
         <div v-for="item in books.docs">
           <div id = "single_book">

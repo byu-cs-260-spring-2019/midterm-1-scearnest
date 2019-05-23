@@ -2,7 +2,7 @@ let app = new Vue({
   el: '#app',
   data: {
     books:{},
-    loading: true,
+    loading: false,
     message:'',
 
     author_name: '',
@@ -18,7 +18,7 @@ let app = new Vue({
       try
       {
         this.loading = true;
-        const response = await axios.get('http://openlibrary.org/search.json?q=the+lord+of+the+rings');
+        const response = await axios.get('https://openlibrary.org/search.json?q=the+lord+of+the+rings');
         const data = response.data;
         this.books = response.data;
         this.loading = false;
