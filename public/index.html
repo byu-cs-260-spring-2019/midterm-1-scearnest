@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>GoodReads</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="app" id = "app">
+
+    <div class="search_bar" id ="search_bar">
+      <h1> Welcome to GreatReads </h1>
+      <h3> you can only search for Lord of the Rings because I did not have remotely enough time to finish this website. </h3>
+      <form v-on:submit.prevent="searchBooks">
+        <input type="text" v-model="message">
+        <button type="submit">Seach</button>
+      </form>
+    </div>
+
+
+
+
+    <div class="body" id = "body">
+
+      <div class="results_section" id = "results_section">
+        <div v-for="item in books.docs">
+          <div id = "single_book">
+            <h2>{{item.author_name}}</h2>
+            <h2>{{item.first_publish_year}}</h2>
+            <input type="checkbox"> <h4> Favorite </h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="favorites_section" id = "favorites_section">
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./script.js"> </script>
+</body>
+</html>
