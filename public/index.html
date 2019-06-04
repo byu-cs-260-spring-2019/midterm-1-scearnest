@@ -10,7 +10,6 @@
 
     <div class="search_bar" id ="search_bar">
       <h1> Welcome to GreatReads </h1>
-      <h3> you can only search for Lord of the Rings because I did not have remotely enough time to finish this website. </h3>
       <form v-on:submit.prevent="searchBooks">
         <input type="text" v-model="message">
         <button type="submit">Seach</button>
@@ -18,28 +17,34 @@
     </div>
 
 
-
-
-    <div class="body" id = "body">
+    <div class="bod" id = "bod">
 
       <div v-if="loading">
-            <p>Loading...</p>
-          </div>
-      <div class="results_section" id = "results_section">
-        <div v-for="item in books.docs">
-          <div id = "single_book">
-            <h2>{{item.author_name}}</h2>
-            <h2>{{item.first_publish_year}}</h2>
-            <input type="checkbox"> <h4> Favorite </h4>
-          </div>
+        <p>Loading...</p>
+      </div>
+
+      <div v-if="!loading" class="results_section" id = "results_section">
+        <div v-for="(item, index) in books.docs">
+          <template v-if="books.docs[index].author_name" v-if="books.docs[index].isbn">
+            <div id = "single_book">
+
+              <h2> {{item.title}}</h2>
+              <span v-html= "books.docs[index].img_url" ></span>
+              <h2>{{item.author_name[0]}} {{item.first_publish_year}}</h2>
+              <input type="checkbox" v-model="item.fav"  @click="updateFilter(books.docs[index])"/> <h4> Favorite </h4>
+
+            </div>
+          </template>
         </div>
       </div>
 
       <div class="favorites_section" id = "favorites_section">
+        <div v-for="item in favorites">
+          <h2>{{item.title}}</h2>
+        </div>
       </div>
 
     </div>
-
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
