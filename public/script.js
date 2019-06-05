@@ -11,7 +11,6 @@ let app = new Vue({
 
     image:'',
 
-    // url: '<img src = "https://covers.openlibrary.org/b/id/8225610-S.jpg"/>',
   },
 
 
@@ -89,14 +88,12 @@ let app = new Vue({
         return false;
     },
 
-
     getBookImg(index)
     {
       console.log(index);
       if(!this.books.docs[index] === undefined)
       {
         console.log(index);
-        // return this.books.docs[index].img_url;
       }
       else
       {
@@ -117,62 +114,5 @@ let app = new Vue({
         this.favorites.splice(this.favorites.indexOf(book),1);
       }
     }
-
-
-    // filterUndefined()
-    // {
-    //   for(i = 0; i < this.books.docs.length; ++i)
-    //   {
-    //     if(this.books.docs[i].author_name === undefined)
-    //     {
-    //       this.books.docs.splice(i,1);
-    //       --i;
-    //     }
-    //     else if(this.books.docs[i].first_publish_year === undefined)
-    //     {
-    //       this.books.docs.splice(i,1);
-    //       --i;
-    //     }
-    //   }
-    // },
-
-
-  },
-
-  // watch:
-  // {
-  //   docs()
-  //   {
-  //     console.log("books changed!");
-  //   }
-  //
-  // },
-
-  computed: {
-
-
-    // computeBookInfo(bookNum)
-    // {
-    //   book = this.books.docs[bookNum];
-    //   author_name = book.author_name.at(0);
-    //   return author_name;
-    // },
-
-    // getImage(isb)
-    // {
-    //
-    // }
-
-
-
   },
 });
-
-
-function editName(name) {
-  name.replace('[','');
-  name.replace(']','');
-  name.replace('""','');
-
-  return name;
-}

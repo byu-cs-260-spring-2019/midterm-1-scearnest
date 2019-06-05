@@ -1,12 +1,46 @@
-.search_bar {
+h1{
+  color: white;
+  font-size: 48px;
+  padding: 20px 100px 0px 100px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h2{
+  color: white;
+  font-size: 24px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h4
+{
+  color: white;
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#welcome_bar {
   background-color: #a1e2c8;
 
   display: flex;
-    flex-direction: column;
+  flex-direction: column;
+}
 
-  /* width: 100%;
-  height: 100%;
-  margin: 0%; */
+#search_bar
+{
+  width: 99%;
+  height: 40px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+}
+
+#search_button
+{
+  width: 100%;
+  height: 30px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  color: white;
+  background-color: #a1e2c8;
 }
 
 .bod {
@@ -16,13 +50,15 @@
 
 .favorites_section {
   float:left;
+  height: 100%;
   width: 35%;
-  background: blue;
+  background: #5b967e;
+  text-align: center;
 }
 
 .results_section{
   height: 80%;
-  background: grey;
+  background: #5b967e;
   float: right;
   width: 65%;
   overflow: auto;
@@ -32,32 +68,43 @@
 #single_book{
   background: #7bc4a7;
 }
-
-.h1 {
-  font-family: 'Montserrat', sans-serif;
+#title
+{
+  text-align: center;
+  width: 50%;
+  float: left;
+  margin: 0;
+  margin-left: 0;
+}
+#options
+{
+  text-align: center;
+  width: 50%;
+  height: 50%
 }
 
-.h2 {
-  font-family: 'Montserrat', sans-serif;
+#fav_text
+{
+  margin-bottom: 0;
+}
+#image
+{
+  float: left;
 }
 
-.h3 {
-  font-family: 'Montserrat', sans-serif;
+#loading
+{
+  float: right;
+  padding-right: 50%;
 }
 
+#info
+{
+  float: left;
+  width: 50%;
+}
 
-
-
-
-
-
-
-/* @media screen and (max-width: 600px) {
-  div.search_bar {
-    flex-direction:column;
-  }
-
-  div.favorites_section{
-    flex: 1;
-  }
-} */
+img {
+  width:100%;
+  height:100%;
+}

@@ -8,18 +8,14 @@
 <body>
   <div class="app" id = "app">
 
-    <div class="search_bar" id ="search_bar">
+    <div id ="welcome_bar">
       <h1> Welcome to GreatReads </h1>
-      <form v-on:submit.prevent="searchBooks">
-        <input type="text" v-model="message">
-        <button type="submit">Seach</button>
-      </form>
     </div>
 
 
     <div class="bod" id = "bod">
 
-      <div v-if="loading">
+      <div v-if="loading" id = "loading">
         <p>Loading...</p>
       </div>
 
@@ -28,10 +24,18 @@
           <template v-if="books.docs[index].author_name" v-if="books.docs[index].isbn">
             <div id = "single_book">
 
-              <h2> {{item.title}}</h2>
-              <span v-html= "books.docs[index].img_url" ></span>
-              <h2>{{item.author_name[0]}} {{item.first_publish_year}}</h2>
-              <input type="checkbox" v-model="item.fav"  @click="updateFilter(books.docs[index])"/> <h4> Favorite </h4>
+              <h2 id = "title"> {{item.title}} by {{item.author_name[0]}} {{item.first_publish_year}} </h2>
+              <div id = "image">
+                <span v-html= "books.docs[index].img_url" ></span>
+              </div>
+
+
+              <!-- <h2 id = "info">  {{item.author_name[0]}} {{item.first_publish_year}}</h2> -->
+              <div id = "options">
+                <h4 id = "fav_text"> Favorite </h4>
+                <input id = "check" type="checkbox" v-model="item.fav"  @click="updateFilter(books.docs[index])"/>
+              </div>
+
 
             </div>
           </template>
@@ -39,6 +43,12 @@
       </div>
 
       <div class="favorites_section" id = "favorites_section">
+        <form v-on:submit.prevent="searchBooks">
+          <input type="text" v-model="message" id= "search_bar" placeholder="search your book here">
+          <button type="submit" id = "search_button">Seach</button>
+        </form>
+
+        <h2>Favorites:</h2>
         <div v-for="item in favorites">
           <h2>{{item.title}}</h2>
         </div>
